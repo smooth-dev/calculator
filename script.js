@@ -8,6 +8,17 @@ let operationsContainer = document.querySelector(".operations"); // click event 
 
 let deleteOneContainer = document.querySelector(".deleteOne"); // teh button that deletes on char
 
+let deleteAllContainer = document.querySelector(".deleteAll"); // teh button that deletes on char
+
+let cursorElement = document.getElementById("cursor");
+setInterval(() => {
+  if (cursorElement.style.visibility === 'hidden') {
+    cursorElement.style.visibility = 'visible';
+  } else {
+      cursorElement.style.visibility = 'hidden';
+  }
+}, 500); 
+
 
 
 let currentNumber,
@@ -23,14 +34,14 @@ numbersContainer.addEventListener("click", (v) => {
     currentNumber = +currentScreen.innerText;
   }
 
-  resultScreen.innerText += v.target.innerText;
+  resultScreen.childNodes[0].nodeValue  += v.target.innerText;
   lastWasOperation = false;
 });
 
 operationsContainer.addEventListener("click", (v) => {
   lastWasOperation = true;
   currentOperation = v.target.innerText;
-  resultScreen.innerText += " " + currentOperation;
+  resultScreen.childNodes[0].nodeValue += " " + currentOperation;
   if (lastOperation != undefined ) {
     switch (lastOperation) {
       case "+":
@@ -52,10 +63,11 @@ operationsContainer.addEventListener("click", (v) => {
     }
     currentNumber = calculatedNumber;
     currentScreen.innerText = calculatedNumber;
-    resultScreen.innerText = currentNumber + (currentOperation!="="?currentOperation:"");
+    console.log("resultScreen.innerText"+resultScreen.childNodes+"currentNumber"+currentNumber+"/currentOperation"+currentOperation)
+    resultScreen.childNodes[0].nodeValue  = currentNumber + (currentOperation!="="?currentOperation:"");
     lastOperation = currentOperation;
 
-    console.log(calculatedNumber);
+    console.log(calculatedNumber);  
   } else {
     calculatedNumber = currentNumber;
     lastOperation = v.target.innerText;
@@ -74,13 +86,33 @@ operationsContainer.addEventListener("click", (v) => {
 
 
 deleteOneContainer.addEventListener("click",(event)=>{
-  if(lastWasOperation){ lastOperation=undefined;}
+  if(lastWasOperation){ lastOperation=undefined;
+    lastWasOperation=false;
+  }
   else {
     currentScreen.innerText =currentScreen.innerText.slice(0, -1)
     currentNumber=Math.floor(currentNumber/10);
   }
 
-  resultScreen.innerText=resultScreen.innerText.slice(0, -1);
+  resultScreen.childNodes[0].nodeValue=resultScreen.childNodes[0].nodeValue.slice(0, -1);
 
   
 })
+
+
+deleteAllContainer.addEventListener("click",(event)=>{
+  resultScreen.childNodes[0].nodeValue="";
+  currentScreen.innerText="";
+  currentNumber="";
+  currentOperation="";
+  lastOperation=undefined;
+  
+
+  
+})
+
+
+
+
+
+
