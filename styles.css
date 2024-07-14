@@ -14,19 +14,46 @@
 .operations > div:hover {
   transition: transform 0.1s ease-in-out;
   border-bottom: solid black 7px;
-
+  border-right: solid black 4px;
 }
 
 .title {
+  font-family: "Courier New", monospace;
   padding-left: 20px;
+  padding-top: 5px;
+  font-weight: 900;
 }
 .container {
-  margin: 200px auto;
+  margin: 0 40%;
+  margin-top: -630px;
+  padding-right: 5px;
   width: 420px;
-  height: 600px;
+  height: 53vh;
+  min-height: 620px;
   background-color: bisque;
-  border: solid black 3px;
   border-radius: 40px;
+}
+.containerBack {
+  min-height: 620px;
+  margin: 0 40.05%;
+  margin-top: 200px;
+  /* margin-left: 40%; */
+  width: 426px;
+  height: 54vh;
+  background-color: rgb(182, 161, 136);
+  border-radius: 40px 33px 40px 50px;
+  border: solid black 3px;
+  border-left: solid grey 0px;
+  border-top: solid grey 0px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    margin-left: 10%;
+  }
+  .containerBack {
+    margin-left: 10.05%;
+  }
 }
 
 .screen {
@@ -64,16 +91,20 @@
   border-bottom: solid black 1px;
 }
 
+.result {
+  padding-bottom: 40px;
+}
 .buttons {
   margin: 0 auto;
   display: flex;
   width: 400px;
-  height: 360px;
-  /* background-color: grey; */
+  height: 60%;
 }
 
 .edits div {
-  border: solid black 1px;
+  border: solid black 3px;
+  border-top: solid black 0px;
+  border-left: solid black 0px;
   border-radius: 14px;
   box-shadow: inset;
   box-sizing: border-box;
@@ -82,10 +113,13 @@
   text-align: center;
 }
 
-.numbers div, .operations div{
+.numbers div,
+.operations div {
   border: solid black 1px;
   border-radius: 14px;
-  border-bottom: solid black 5px;
+  border-top: solid black 0px;
+  border-left: solid black 0px;
+  border-bottom: solid black 3px;
   box-shadow: inset;
 }
 
@@ -94,24 +128,28 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 290px;
-  height: 360px;
-  /* background-color: rgb(98, 0, 255); */
+  height: 100%;
   gap: 5px;
 }
 .edits {
   display: flex;
   justify-content: space-between;
   width: 95%;
-  height: 70px;
+  height: 12%;
   margin: 4px auto;
-  /* background-color: rgb(67, 185, 92); */
 }
 .numbers div {
   box-sizing: border-box;
-  background-color: rgb(211, 210, 210);
+  background: rgb(235, 235, 235);
+  background: radial-gradient(
+    circle,
+    rgba(235, 235, 235, 1) 0%,
+    rgba(235, 235, 235, 1) 5%,
+    rgba(210, 210, 210, 1) 100%
+  );
   width: 31%;
   padding: 5%;
-} 
+}
 
 .operations {
   margin-left: 5px;
@@ -119,8 +157,7 @@
   flex-direction: column;
   align-items: center;
   width: 120px;
-  height: 360px;
-  /* background-color: red; */
+  height: 100%;
   row-gap: 5px;
   text-align: center;
 }
@@ -130,10 +167,14 @@
   font-size: 32px;
   flex-grow: 1;
   box-sizing: border-box;
-  padding-top: 12%;
+  padding-top: 12px;
   width: 100%;
-  /* height: 20%; */
-  background-color: rgb(117, 165, 43) ;
+  background: rgb(149, 208, 57);
+  background: radial-gradient(
+    circle,
+    rgb(118, 163, 44) 40%,
+    rgb(103, 143, 40) 100%
+  );
 }
 
 .number0 {
@@ -142,18 +183,30 @@
   flex-grow: 0.98;
 }
 
-
-.deleteAll{
-  background-color: rgb(249, 132, 132);
+.deleteAll {
+  background: rgb(237, 126, 126);
+  background: radial-gradient(
+    circle,
+    rgba(237, 126, 126, 1) 0%,
+    rgba(218, 128, 128, 1) 4%,
+    rgba(189, 107, 107, 1) 100%
+  );
 }
 
-
-.deleteOne{
-  background-color: rgb(211, 210, 210);
+.deleteOne {
+  background: radial-gradient(
+    circle,
+    rgba(235, 235, 235, 1) 0%,
+    rgba(235, 235, 235, 1) 5%,
+    rgba(210, 210, 210, 1) 100%
+  );
 }
 
-
-
-.operations .operation4{
-  background-color: rgb(150, 212, 56);
+.operations .operation4 {
+  background: rgb(149, 208, 57);
+  background: radial-gradient(
+    circle,
+    rgba(149, 208, 57, 1) 40%,
+    rgb(128, 177, 49) 100%
+  );
 }
